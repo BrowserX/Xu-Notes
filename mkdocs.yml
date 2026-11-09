@@ -1,0 +1,54 @@
+site_name: "Xu's Notes"
+site_url: https://browserx.github.io/Xu-Notes/
+theme:
+  name: material
+  language: zh
+  font: false
+  logo: assets/site/yin-yang-diamond.svg
+  favicon: assets/site/yin-yang.svg
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/yin-yang
+        name: 切换为黑底
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/yin-yang
+        name: 切换为白底
+  features:
+    - navigation.tabs
+
+nav:
+  - 首页: index.md
+  - 算法:
+    - ads:
+      - 平衡搜索树: 
+        - AVL树: algorithm/ads/bbst/AVLtree.md
+        - 红黑树: algorithm/ads/bbst/RBtree.md
+        - Splay树: algorithm/ads/bbst/Splaytree.md
+      - 摊还分析: algorithm/ads/amortized_analysis.md
+      - 可并堆:
+        - 左式堆: algorithm/ads/mergeable_heap/leftist_heap.md
+        - 斜堆: algorithm/ads/mergeable_heap/skew_heap.md
+        - 二项堆: algorithm/ads/mergeable_heap/binomial_heap.md
+      - 回溯: algorithm/ads/backtracing.md
+      - 贪心: algorithm/ads/greedy.md
+      - 动态规划: algorithm/ads/dp.md
+      - 分治: algorithm/ads/divide_conquer.md
+  - 物理: physics.md
+
+markdown_extensions:
+- pymdownx.arithmatex:
+    generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+
+extra_css:
+  - stylesheets/monochrome.css

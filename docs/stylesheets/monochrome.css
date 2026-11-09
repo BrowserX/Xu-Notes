@@ -1,0 +1,127 @@
+/* 黑白两种配色：顶栏与正文互为反色。 */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #111111;
+  --md-primary-fg-color--light: #333333;
+  --md-primary-fg-color--dark: #000000;
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: #d0d0d0;
+  --md-accent-fg-color: #111111;
+  --md-accent-fg-color--transparent: #0000000d;
+  --md-accent-bg-color: #ffffff;
+  --md-default-fg-color: #202020;
+  --md-default-fg-color--light: #626262;
+  --md-default-fg-color--lighter: #a0a0a0;
+  --md-default-fg-color--lightest: #e4e4e4;
+  --md-default-bg-color: #ffffff;
+  --md-code-bg-color: #f3f3f3;
+  --md-code-fg-color: #242424;
+  --md-typeset-a-color: #111111;
+  --md-typeset-table-color: #dddddd;
+  --md-typeset-table-color--light: #f6f6f6;
+  --notes-quote-bg: #f5f5f5;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 0;
+  --md-primary-fg-color: #f5f5f5;
+  --md-primary-fg-color--light: #ffffff;
+  --md-primary-fg-color--dark: #dedede;
+  --md-primary-bg-color: #111111;
+  --md-primary-bg-color--light: #555555;
+  --md-accent-fg-color: #ffffff;
+  --md-accent-fg-color--transparent: #ffffff14;
+  --md-accent-bg-color: #111111;
+  --md-default-fg-color: #e7e7e7;
+  --md-default-fg-color--light: #b5b5b5;
+  --md-default-fg-color--lighter: #777777;
+  --md-default-fg-color--lightest: #393939;
+  --md-default-bg-color: #151515;
+  --md-code-bg-color: #242424;
+  --md-code-fg-color: #ededed;
+  --md-typeset-a-color: #f0f0f0;
+  --md-typeset-table-color: #444444;
+  --md-typeset-table-color--light: #202020;
+  --notes-quote-bg: #242424;
+}
+
+.md-header, .md-tabs {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+.md-header { box-shadow: none; }
+.md-tabs { border-bottom: 1px solid var(--md-default-fg-color--lightest); }
+.md-header .md-logo svg { width: 1.35rem; height: 1.35rem; }
+.md-header .md-header__button[for^="__palette"] svg { width: 1.15rem; height: 1.15rem; }
+
+.md-typeset h1 { color: var(--md-default-fg-color); font-weight: 600; }
+.md-typeset h2 {
+  padding-bottom: .35em;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+.md-typeset a { text-decoration-thickness: 1px; text-underline-offset: .18em; }
+.md-typeset a:hover { text-decoration: underline; }
+.md-nav__link--active { font-weight: 700; }
+.md-typeset blockquote {
+  padding: .65em 1em;
+  border-left: .18rem solid var(--md-default-fg-color);
+  background: var(--notes-quote-bg);
+  color: var(--md-default-fg-color);
+}
+.md-typeset blockquote > :first-child { margin-top: 0; }
+.md-typeset blockquote > :last-child { margin-bottom: 0; }
+.md-typeset table:not([class]) th {
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+.md-typeset table:not([class]) tbody tr:nth-child(even) {
+  background: var(--md-typeset-table-color--light);
+}
+.md-typeset pre > code { border: 1px solid var(--md-default-fg-color--lightest); }
+.md-typeset .highlight span { color: var(--md-code-fg-color); }
+.md-typeset .highlight .c, .md-typeset .highlight .c1,
+.md-typeset .highlight .cm { color: var(--md-default-fg-color--light); }
+.md-typeset .highlight .k, .md-typeset .highlight .kn,
+.md-typeset .highlight .kd { font-weight: 700; }
+.md-typeset img[src$=".svg"] { border-radius: .2rem; }
+
+/* 左侧导航与顶栏同色；正文、右侧目录沿用正文配色。 */
+.md-sidebar--primary {
+  --md-default-bg-color: var(--md-primary-fg-color);
+  --md-default-fg-color: var(--md-primary-bg-color);
+  --md-default-fg-color--light: var(--md-primary-bg-color--light);
+  --md-default-fg-color--lighter: var(--md-primary-bg-color--light);
+  --md-typeset-a-color: var(--md-primary-bg-color);
+  --md-accent-fg-color: var(--md-primary-bg-color);
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+.md-sidebar--primary .md-nav__title {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+.md-sidebar--primary .md-nav__link:hover {
+  color: var(--md-primary-bg-color);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    isolation: isolate;
+    width: 10rem;
+  }
+  .md-sidebar--primary::before {
+    content: "";
+    position: absolute;
+    inset: -100vh 0 -100vh -100vw;
+    z-index: -1;
+    pointer-events: none;
+    background-color: var(--md-primary-fg-color);
+  }
+}
+
+/* 桌面页面铺满窗口，去掉居中网格产生的外侧留白。 */
+@media screen and (min-width: 76.25em) {
+  .md-grid { max-width: none; }
+  .md-main__inner { margin-left: 0; margin-right: 0; }
+}
+.md-header .md-logo img { width: 1.5rem; height: 1.5rem; }

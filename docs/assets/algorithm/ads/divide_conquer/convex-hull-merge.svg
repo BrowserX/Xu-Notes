@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 440" role="img" aria-label="两个上凸壳的合并；红线依次表示接缝处调整的候选连接，最上方为最终连接">
+  <rect width="1400" height="440" fill="#fff"/>
+  <g fill="none" stroke="#e34940" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M533 386 840 335 M530 238 840 335 M414 90 840 335 M414 90 885 237" stroke-width="3"/>
+    <path d="M414 90 1048 103" stroke-width="3.6"/>
+  </g>
+  <g fill="none" stroke="#202020" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 405 69 275 214 127 414 90 530 238 533 386"/>
+    <path d="M840 335 885 237 1048 103 1220 162 1328 365"/>
+  </g>
+</svg>
